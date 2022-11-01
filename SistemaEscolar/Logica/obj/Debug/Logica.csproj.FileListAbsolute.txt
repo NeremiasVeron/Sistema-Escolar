@@ -1,0 +1,25 @@
+C:\Repositorio\.net\proyectos\Librería de MiPrimerSistema\Logica\bin\Debug\Logica.dll
+C:\Repositorio\.net\proyectos\Librería de MiPrimerSistema\Logica\bin\Debug\Logica.pdb
+C:\Repositorio\.net\proyectos\Librería de MiPrimerSistema\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
+C:\Repositorio\.net\proyectos\Librería de MiPrimerSistema\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Repositorio\.net\proyectos\Librería de MiPrimerSistema\Logica\obj\Debug\Logica.dll
+C:\Repositorio\.net\proyectos\Librería de MiPrimerSistema\Logica\obj\Debug\Logica.pdb
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\bin\Debug\Logica.dll
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\bin\Debug\Logica.pdb
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\bin\Debug\Vista.exe
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\bin\Debug\Vista.pdb
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\bin\Debug\Vista.exe.config
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\obj\Debug\Logica.csproj.CopyComplete
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\obj\Debug\Logica.dll
+C:\Repositorio\.net\proyectos\MiPrimerSistema\Logica\obj\Debug\Logica.pdb
+C:\Repositorio\BitBucker\SystemSchool\Logica\bin\Debug\Logica.dll
+C:\Repositorio\BitBucker\SystemSchool\Logica\bin\Debug\Logica.pdb
+C:\Repositorio\BitBucker\SystemSchool\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
+C:\Repositorio\BitBucker\SystemSchool\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Repositorio\BitBucker\SystemSchool\Logica\obj\Debug\Logica.dll
+C:\Repositorio\BitBucker\SystemSchool\Logica\obj\Debug\Logica.pdb
+C:\Repositorio\BitBucker\SystemSchool\Logica\bin\Debug\Newtonsoft.Json.dll
+C:\Repositorio\BitBucker\SystemSchool\Logica\bin\Debug\Newtonsoft.Json.xml
+C:\Repositorio\BitBucker\SystemSchool\Logica\obj\Debug\Logica.csproj.CopyComplete

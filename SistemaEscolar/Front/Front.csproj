@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A092FC3-A512-4038-A2E9-D90C92A7F956}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Front</RootNamespace>
+    <AssemblyName>Front</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.1.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Botones\BotonPadre.cs" />
+    <Compile Include="Botones\Boton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Alumnos\FormAltaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alumnos\FormAltaAlumno.Designer.cs">
+      <DependentUpon>FormAltaAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alumnos\FormAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alumnos\FormAlumnos.Designer.cs">
+      <DependentUpon>FormAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alumnos\FormModificarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alumnos\FormModificarAlumno.Designer.cs">
+      <DependentUpon>FormModificarAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alumnos\FrmAlertaBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alumnos\FrmAlertaBox.Designer.cs">
+      <DependentUpon>FrmAlertaBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos\FormAltaCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cursos\FormAltaCursos.Designer.cs">
+      <DependentUpon>FormAltaCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos\FormAsignarMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cursos\FormAsignarMaterias.Designer.cs">
+      <DependentUpon>FormAsignarMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos\FormCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cursos\FormCursos.Designer.cs">
+      <DependentUpon>FormCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos\FormModificarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cursos\FormModificarCurso.Designer.cs">
+      <DependentUpon>FormModificarCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\FrmLoginRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\FrmLoginRegistro.Designer.cs">
+      <DependentUpon>FrmLoginRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materias\FrmAltaMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materias\FrmAltaMateria.Designer.cs">
+      <DependentUpon>FrmAltaMateria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materias\FrmMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materias\FrmMaterias.Designer.cs">
+      <DependentUpon>FrmMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materias\FrmModificarMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materias\FrmModificarMateria.Designer.cs">
+      <DependentUpon>FrmModificarMateria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Preceptores\FormAltaPreceptor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preceptores\FormAltaPreceptor.Designer.cs">
+      <DependentUpon>FormAltaPreceptor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Preceptores\FormModificarPreceptor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preceptores\FormModificarPreceptor.Designer.cs">
+      <DependentUpon>FormModificarPreceptor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Preceptores\FormPreceptor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preceptores\FormPreceptor.Designer.cs">
+      <DependentUpon>FormPreceptor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profesores\FormProfesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profesores\FormProfesores.Designer.cs">
+      <DependentUpon>FormProfesores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profesores\FrmAltaProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profesores\FrmAltaProfesor.Designer.cs">
+      <DependentUpon>FrmAltaProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profesores\FrmModificarProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profesores\FrmModificarProfesor.Designer.cs">
+      <DependentUpon>FrmModificarProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Alumnos\FormAltaAlumno.resx">
+      <DependentUpon>FormAltaAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alumnos\FormAlumnos.resx">
+      <DependentUpon>FormAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alumnos\FormModificarAlumno.resx">
+      <DependentUpon>FormModificarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alumnos\FrmAlertaBox.resx">
+      <DependentUpon>FrmAlertaBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cursos\FormAltaCursos.resx">
+      <DependentUpon>FormAltaCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cursos\FormAsignarMaterias.resx">
+      <DependentUpon>FormAsignarMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cursos\FormCursos.resx">
+      <DependentUpon>FormCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cursos\FormModificarCurso.resx">
+      <DependentUpon>FormModificarCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FrmLoginRegistro.resx">
+      <DependentUpon>FrmLoginRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materias\FrmAltaMateria.resx">
+      <DependentUpon>FrmAltaMateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materias\FrmMaterias.resx">
+      <DependentUpon>FrmMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preceptores\FormAltaPreceptor.resx">
+      <DependentUpon>FormAltaPreceptor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preceptores\FormModificarPreceptor.resx">
+      <DependentUpon>FormModificarPreceptor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preceptores\FormPreceptor.resx">
+      <DependentUpon>FormPreceptor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profesores\FormProfesores.resx">
+      <DependentUpon>FormProfesores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profesores\FrmAltaProfesor.resx">
+      <DependentUpon>FrmAltaProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profesores\FrmModificarProfesor.resx">
+      <DependentUpon>FrmModificarProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Logica.Alumno.datasource" />
+    <None Include="Properties\DataSources\Logica.Curso.datasource" />
+    <None Include="Properties\DataSources\Logica.cursoMateria.datasource" />
+    <None Include="Properties\DataSources\Logica.Materia.datasource" />
+    <None Include="Properties\DataSources\Logica.Persistenciadedatos.datasource" />
+    <None Include="Properties\DataSources\Logica.Principal.datasource" />
+    <None Include="Properties\DataSources\Logica.Profesor.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo banda de musica Techno psicodelico verde y negro .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo banda de musica Techno psicodelico verde y negro 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_banda_de_musica_Techno_psicodelico_verde_y_negro_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_para_Practica_._F-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_para_Practica_._F__1_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logica\Logica.csproj">
+      <Project>{fb82341f-38ca-4c54-8e8c-cb6419ce2f1b}</Project>
+      <Name>Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Examenes\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
