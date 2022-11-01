@@ -58,10 +58,6 @@
       <Project>{fb82341f-38ca-4c54-8e8c-cb6419ce2f1b}</Project>
       <Name>Logica</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Vista\Vista.csproj">
-      <Project>{c8b4b823-f53f-443c-a175-2c345c4095d9}</Project>
-      <Name>Vista</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
