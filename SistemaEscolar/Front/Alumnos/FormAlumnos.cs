@@ -8,20 +8,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
 using Color = System.Drawing.Color;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Front
 {
     public partial class FormAlumnos : Form
     {
         private Form formactual;
-        private DataGridView dtg_Alumnos;
         Principal instanciaPrincipal = new Principal();
-
-        public DataGridView Dtg_Alumnos { get => dtg_Alumnos; set => dtg_Alumnos = value; }
 
         public FormAlumnos()
         {
@@ -30,14 +29,14 @@ namespace Front
             //instanciaPrincipal.RellenarListas();
 
         }
-
+        
         private void FormAlumnos_Load(object sender, EventArgs e)
         {
             actualizarGrilla();
-            rbtnMatricula.Checked = true;
+            //lblAlumnoMod.Visible = false;
+           //lblIdAlumnoMod.Visible = false;
 
-
-                           //5/10 = 00:00HS. Agregar una lista a la logica datos mas relevantes, traerla y mostrarla. En los btn ABM, llamo al dtg del form a heredar.
+                //5/10 = 00:00HS. Agregar una lista a la logica datos mas relevantes, traerla y mostrarla. En los btn ABM, llamo al dtg del form a heredar.
                            //Heredar otro form de alumnos para mostrar la lista con datos completos.
 
             //foreach(var indice in instanciaPrincipal.getListaAlumnos())
@@ -46,13 +45,7 @@ namespace Front
 
             //}
         }
-        //private void gridVistaPrevia()
-        //{
-        //    grdVistaPrevia.DataSource = null;
-        //    //grdVistaPrevia[0][]
-            
-            
-        //}
+   
         private void actualizarGrilla() 
         { 
             instanciaPrincipal.RellenarListas();
@@ -60,21 +53,6 @@ namespace Front
             gridAlumnos.DataSource = instanciaPrincipal.getListaAlumnos();
             lblContadorAlumnos.Text = instanciaPrincipal.getListaAlumnos().Count.ToString(); 
 
-        }
-
-        private void boton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnNuevoAlumno_Click(object sender, EventArgs e)
@@ -99,35 +77,66 @@ namespace Front
             childForm.Show();
         }
 
-        private void panelAlumnos_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+      
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            
             if (rbtnMatricula.Checked == true)
             {
-                int alumnoBuscar = Convert.ToInt32(txtBusqueda.Text.Trim());
-                gridAlumnos.DataSource = instanciaPrincipal.buscarAlumnosPorMatricula(alumnoBuscar);
+                int matriculaAlumno = Convert.ToInt32(txtBusqueda.Text);
+                List<Alumno> listaAlumnosEncontrada = new List<Alumno>();
+                listaAlumnosEncontrada = instanciaPrincipal.BuscarAlumnoPorMatricula(matriculaAlumno);
+
+                if ( listaAlumnosEncontrada.Count == 0)
+                {
+                    MessageBox.Show("No existe alumno con matricula " + txtBusqueda.Text + "!" , "Búsqueda" , MessageBoxButtons.OK , MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    gridAlumnos.DataSource = listaAlumnosEncontrada;
+                }
+                
             }
-            if (rbtnNombre.Checked == true)
+
+            else if (rbtnNombre.Checked == true)
             {
-                string alumnoBuscar = txtBusqueda.Text.Trim();
-                gridAlumnos.DataSource = instanciaPrincipal.buscarAlumnosPorNombre(alumnoBuscar);
+                string nombreAlumno = txtBusqueda.Text.Trim();
+                List<Alumno> listaAlumnosEncontrada = new List<Alumno>();
+                listaAlumnosEncontrada = instanciaPrincipal.BuscarAlumnoPorNombre(nombreAlumno);
+
+                if (listaAlumnosEncontrada.Count == 0 )
+                {
+                    MessageBox.Show("No existe el alumno con nombre '" + txtBusqueda.Text + "' !");
+                }
+                else
+                {
+                    gridAlumnos.DataSource = listaAlumnosEncontrada;
+                }
+               
             }
-            if (rbtnDocumento.Checked) { string alumnoBuscado = txtBusqueda.Text.Trim(); gridAlumnos.DataSource = instanciaPrincipal.buscarAlumnosPorDNI(alumnoBuscado); }
 
-        }
+            else if (rbtnDocumento.Checked == true)
+            { 
+                string dniAlumno = txtBusqueda.Text.Trim();
+                List<Alumno> listaAlumnosEncontrada = new List<Alumno>();
+                listaAlumnosEncontrada = instanciaPrincipal.BuscarAlumnoPorDNI(dniAlumno);
 
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            actualizarGrilla();
-        }
+                if (listaAlumnosEncontrada.Count == 0)
+                {
+                    MessageBox.Show("No existe alumno con numero de documento '" + txtBusqueda.Text + "' !" ,"Búsqueda", MessageBoxButtons.OK ,MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    gridAlumnos.DataSource = listaAlumnosEncontrada;
+                }
 
-        private void dtgAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione porqué filtro desea buscar.", " Buscar ", MessageBoxButtons.OK , MessageBoxIcon.Exclamation);
+            }
+           
         }
 
         private void btnEliminarAlumno_Click(object sender, EventArgs e)
@@ -173,7 +182,9 @@ namespace Front
                 frm.txtTelefonoAlumno.Text = indice.Cells[8].Value.ToString();
                 frm.txtEmail.Text = indice.Cells[9].Value.ToString();
                 frm.txtDireccion.Text = indice.Cells[10].Value.ToString();
-                //frm.sexo[11]
+
+                if (indice.Cells[11].Value.ToString() == "Masculino") { frm.radiobtnM.Select(); } else { frm.radiobtnF.Select(); } //Envio al otro form el sexo del alumno que di de alta.
+
                 frm.dtmAlumno.Value = (DateTime)indice.Cells[12].Value;
                 if (indice.Cells[13].Value == null) { indice.Cells[13].Value = 0; frm.txtMatAprobadas.Text = indice.Cells[13].Value.ToString(); }
                 else { frm.txtMatAprobadas.Text = indice.Cells[13].Value.ToString(); }
@@ -183,6 +194,34 @@ namespace Front
             }
             OpenChildForm(frm);
             actualizarGrilla();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            actualizarGrilla();
+        }
+
+        private void panelAlumnos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void boton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void dtgAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void persistenciadedatosBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -207,6 +246,21 @@ namespace Front
         }
 
         private void gridAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblIdAlumnoMod_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void lblAlumnoMod_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void rbtnNombre_CheckedChanged(object sender, EventArgs e)
         {
 
         }

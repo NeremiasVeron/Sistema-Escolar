@@ -88,7 +88,9 @@ namespace Logica
             ListaHistorialInasistencias = InstanciaPersistenciaDatos.LeerArchivoHistorialInasistencias();
 
         }
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                      ////GESTIÓN DE USERS
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         public void AltaUsuario(Usuario nuevoUsuario)
         {
             ListaUsuarios = ValidarNullListaUsuarios();
@@ -146,6 +148,11 @@ namespace Logica
                
             }
             return validador;
+        }
+        public List<Usuario> GetListaUsuarios()
+        {
+            ListaUsuarios = ValidarNullListaUsuarios();
+            return ListaUsuarios;
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -220,6 +227,7 @@ namespace Logica
             alumnoModificado.matAprobadas = alumnoNuevo.matAprobadas;
             //alumnoModificado.condicion = alumnoNuevo.condicion;
             alumnoModificado.matDesaprobadas = alumnoNuevo.matDesaprobadas;
+            alumnoModificado.sexo = alumnoNuevo.sexo;
             alumnoModificado.asignarEdad();
             //alumnoModificado.cursoAlumno = alumnoNuevo.cursoAlumno;
             var alumnoEliminado = ListaAlumnos.Find(x => matricula == x.matricula);
@@ -228,11 +236,31 @@ namespace Logica
 
             InstanciaPersistenciaDatos.GuardarArchivoAlumno(ListaAlumnos);
         }
-        public List<Alumno> buscarAlumnosPorMatricula(int id) //Busqueda alumnos por ID.
+
+        /////////////////////////////BUSQUEDAS///////////////////////////////
+        
+        public List<Alumno> BuscarAlumnoPorNombre(string nombre)
         {
+            ListaAlumnos = ValidarNullListaAlumnos();
+
+            List<Alumno> listaFiltrada = new List<Alumno>();
+
+            foreach(var alumno in ListaAlumnos)
+            {
+                if (alumno.nombre.Contains(nombre))
+                {
+                    listaFiltrada.Add(alumno);
+                }
+                
+            }
+            return listaFiltrada;
+        }
+        public List<Alumno> BuscarAlumnoPorMatricula(int id) //Busqueda alumnos por ID.
+        {
+            ListaAlumnos = ValidarNullListaAlumnos();
             List<Alumno> listaAlumnosEncontrados = new List<Alumno>();
-            var alumno = ListaAlumnos.Find(x => id == x.matricula);
-            listaAlumnosEncontrados.Add(alumno);
+
+            listaAlumnosEncontrados = ListaAlumnos.FindAll(x => id == x.matricula);
 
             return listaAlumnosEncontrados;
 
@@ -240,17 +268,11 @@ namespace Logica
         public bool validarNumeroDoc(string nroDocumento)
         {
             bool rta = false;
-            if (buscarAlumnosPorDNI(nroDocumento).Count == 0) { return rta; }
+            if (BuscarAlumnoPorDNI(nroDocumento).Count == 0) { return rta; }
             else { return true; };
         }
-        public List<Alumno> buscarAlumnosPorNombre(string nombre) //Busqueda alumnos por Nombre.
-        {
-            List<Alumno> listaAlumnosEncontrados = new List<Alumno>();
-            listaAlumnosEncontrados = ListaAlumnos.FindAll(x => nombre == x.nombre);
-            return listaAlumnosEncontrados;
 
-        }
-        public List<Alumno> buscarAlumnosPorDNI(string documento) //Busqueda alumnos por Documento.
+        public List<Alumno> BuscarAlumnoPorDNI(string documento) //Busqueda alumnos por Documento.
         {
             ListaAlumnos = ValidarNullListaAlumnos();
             List<Alumno> listaAlumnosEncontrados = new List<Alumno>();

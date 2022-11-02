@@ -23,3 +23,12 @@ C:\Repositorio\BitBucker\SystemSchool\Logica\obj\Debug\Logica.pdb
 C:\Repositorio\BitBucker\SystemSchool\Logica\bin\Debug\Newtonsoft.Json.dll
 C:\Repositorio\BitBucker\SystemSchool\Logica\bin\Debug\Newtonsoft.Json.xml
 C:\Repositorio\BitBucker\SystemSchool\Logica\obj\Debug\Logica.csproj.CopyComplete
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Logica\bin\Debug\Logica.dll
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Logica\bin\Debug\Logica.pdb
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Logica\bin\Debug\Newtonsoft.Json.dll
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Logica\bin\Debug\Newtonsoft.Json.xml
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Logica\obj\Debug\Logica.csproj.CopyComplete
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Logica\obj\Debug\Logica.dll
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Logica\obj\Debug\Logica.pdb

@@ -29,12 +29,14 @@ namespace Front.Forms
             cmbTipodoc.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCursos.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDivisiones.DropDownStyle = ComboBoxStyle.DropDownList;
+
             cmbTipodoc.Items.Add("DNI");
             cmbTipodoc.Items.Add("Pasaporte");
             cmbTipodoc.Items.Add("Libreta Enrolamiento");
             cmbTipodoc.Items.Add("Libreta Civica");
             cmbTipodoc.Items.Add("Libreta Verde");
             btnGuardar.Enabled = false;
+
 
         }
 
@@ -54,14 +56,15 @@ namespace Front.Forms
             alumnoNuevo.direccion = txtDireccion.Text.Trim();
             if (radiobtnF.Checked)
             {
-                alumnoNuevo.sexo = radiobtnF.ToString();
+                alumnoNuevo.sexo = radiobtnF.Text.ToString();
             }
             else
             {
-                alumnoNuevo.sexo = radiobtnM.ToString();
+                alumnoNuevo.sexo = radiobtnM.Text.ToString();
             }
             Instanciaprincipal.AltaAlumno(alumnoNuevo);
-            if (Instanciaprincipal.buscarAlumnosPorMatricula(alumnoNuevo.matricula).Count == 1) //validacion para saber si el alumno que di de alta se guardo.
+
+            if (Instanciaprincipal.BuscarAlumnoPorDNI(alumnoNuevo.numeroDoc).Count == 1) //validacion para saber si el alumno que di de alta se guardo.
             {
                 FrmAlertaBox frm = new FrmAlertaBox("Alumno registrado con éxito!", Color.FromArgb(40, 167, 69), 1);
                 frm.ShowDialog();
@@ -69,15 +72,15 @@ namespace Front.Forms
             }
             else
             {
-                MessageBox.Show("No se ha podido registrar al alumno , intente cargarlo nuevamente !");
+                MessageBox.Show("No se ha podido registrar al alumno , intente cargarlo nuevamente !" , "Error");
 
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text.Length > 0 || txtApellido.Text.Length > 0 || txtNroDoc.Text.Length > 0 ||
-               txtTelefonoAlumno.Text.Length > 0 || txtEmail.Text.Length > 0 || txtLocalidadAlumno.Text.Length > 0 || txtDireccion.Text.Length > 0)
+            if (txtNombre.Text.Length > 0 || txtApellido.Text.Length > 0 || cmbTipodoc.Text.Length > 0 ||txtNroDoc.Text.Length > 0 ||
+               txtTelefonoAlumno.Text.Length > 0 || txtEmail.Text.Length > 0 || txtLocalidadAlumno.Text.Length > 0 || txtDireccion.Text.Length > 0 || cmbCursos.Text.Length > 0 || cmbDivisiones.Text.Length > 0 )
             {
                 DialogResult inputUsuario = MessageBox.Show("¿Esta seguro que desea salir sin guardar?", "Salir sin guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (inputUsuario == DialogResult.OK) { this.Close(); }
@@ -270,7 +273,7 @@ namespace Front.Forms
 
         private void dtmAlumno_ValueChanged(object sender, EventArgs e)
         {
-           
+            ValidarFecha();
         }
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
@@ -299,16 +302,23 @@ namespace Front.Forms
         // AGREGAR : VALIDAR NRO TELÉFONO - FECHA DE NACIMIENTO.  
         private void nuevoAlumno() { }
 
-        private void ValidarFecha() { }
-        
-            //DateTime hoy = DateTime.Today;
-            //if (dtmAlumno.Value >= hoy)
-            //{
-            //    MessageBox.Show("Fecha Inválida!", "ERROR");
-            //    this.btnGuardar.Enabled = false;
+        private bool ValidarFecha() 
+        {
+            DateTime fechaActual = DateTime.Today;
+            int edad;
 
-            //}
-            //if (dtmAlumno.Value < dtmAlumno.MinDate) { MessageBox.Show("Fecha Inválida!", "ERROR"); }
+
+            if (dtmAlumno.Value == fechaActual)
+            {
+                MessageBox.Show("Fecha Inválida");
+            }
+
+            edad = fechaActual.Year - dtmAlumno.Value.Year;
+            if (dtmAlumno.Value.Month > fechaActual.Month) { --edad; }
+
+            if(edad < 12 || edad > 20) { MessageBox.Show("El límite de edad es a partir de 12 años hasta los 20." , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error); btnGuardar.Enabled = false; return false; }
+            else { btnGuardar.Enabled = true; return true; }
+        }
         
         private void limpiarCampos()
         {
@@ -329,7 +339,8 @@ namespace Front.Forms
         {
             if (txtNombre.Text.Length > 0 && txtApellido.Text.Length > 0 && txtNroDoc.Text.Length > 0 && txtLocalidadAlumno.Text.Length > 0 && txtDireccion.Text.Length > 0 &&
                 txtEmail.Text.Length > 0 && txtTelefonoAlumno.Text.Length > 0 && cmbTipodoc.Text.Length > 0 && cmbCursos.Text.Length > 0 && cmbDivisiones.Text.Length > 0 &&
-                radiobtnF.Checked.ToString().Length > 0 && radiobtnM.Checked.ToString().Length > 0) { btnGuardar.Enabled = true; }
+                radiobtnF.Checked.ToString().Length > 0 && radiobtnM.Checked.ToString().Length > 0 && ValidarFecha() == true) { btnGuardar.Enabled = true; }
+            
             else { btnGuardar.Enabled = false; }
         }
         private void InicializarMayusculas(TextBox txtIngresado)

@@ -87,6 +87,7 @@
             this.errorProviderDiv = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderMat = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderMatDesa = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderSex = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelModificarAlumno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
@@ -102,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDiv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMatDesa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSex)).BeginInit();
             this.SuspendLayout();
             // 
             // panelModificarAlumno
@@ -170,6 +172,7 @@
             this.radiobtnF.TabStop = true;
             this.radiobtnF.Text = "Femenino";
             this.radiobtnF.UseVisualStyleBackColor = true;
+            this.radiobtnF.CheckedChanged += new System.EventHandler(this.radiobtnF_CheckedChanged);
             // 
             // radiobtnM
             // 
@@ -184,6 +187,7 @@
             this.radiobtnM.Text = "Masculino";
             this.radiobtnM.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.radiobtnM.UseVisualStyleBackColor = true;
+            this.radiobtnM.CheckedChanged += new System.EventHandler(this.radiobtnM_CheckedChanged);
             // 
             // label15
             // 
@@ -744,6 +748,10 @@
             // 
             this.errorProviderMatDesa.ContainerControl = this;
             // 
+            // errorProviderSex
+            // 
+            this.errorProviderSex.ContainerControl = this;
+            // 
             // FormModificarAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -770,6 +778,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDiv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMatDesa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSex)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -833,5 +842,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ErrorProvider errorProviderSex;
     }
 }

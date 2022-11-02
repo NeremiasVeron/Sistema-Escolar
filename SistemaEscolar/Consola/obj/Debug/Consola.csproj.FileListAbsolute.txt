@@ -34,3 +34,16 @@ C:\Repositorio\BitBucker\SystemSchool\Consola\obj\Debug\Consola.pdb
 C:\Repositorio\BitBucker\SystemSchool\Consola\bin\Debug\Vista.exe
 C:\Repositorio\BitBucker\SystemSchool\Consola\bin\Debug\Vista.pdb
 C:\Repositorio\BitBucker\SystemSchool\Consola\bin\Debug\Vista.exe.config
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\bin\Debug\Consola.exe.config
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\bin\Debug\Consola.exe
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\bin\Debug\Consola.pdb
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\bin\Debug\Logica.dll
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\bin\Debug\Newtonsoft.Json.dll
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\bin\Debug\Logica.pdb
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\bin\Debug\Newtonsoft.Json.xml
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\obj\Debug\Consola.csproj.AssemblyReference.cache
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\obj\Debug\Consola.csproj.SuggestedBindingRedirects.cache
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\obj\Debug\Consola.csproj.CoreCompileInputs.cache
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\obj\Debug\Consola.csproj.CopyComplete
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\obj\Debug\Consola.exe
+C:\Repositorio\Sistema-Escolar\SistemaEscolar\Consola\obj\Debug\Consola.pdb

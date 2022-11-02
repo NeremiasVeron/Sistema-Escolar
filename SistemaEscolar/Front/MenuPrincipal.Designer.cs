@@ -31,6 +31,7 @@ namespace Front
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.BtnReportes = new FontAwesome.Sharp.IconButton();
             this.BtnCursos = new FontAwesome.Sharp.IconButton();
@@ -42,23 +43,23 @@ namespace Front
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblProfesores = new System.Windows.Forms.Label();
+            this.lblAlumnos = new System.Windows.Forms.Label();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.lblTituloChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.lblAlumnos = new System.Windows.Forms.Label();
-            this.lblProfesores = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -83,7 +84,7 @@ namespace Front
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 661);
+            this.panelMenu.Size = new System.Drawing.Size(220, 657);
             this.panelMenu.TabIndex = 2;
             // 
             // BtnReportes
@@ -284,15 +285,70 @@ namespace Front
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 0);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1008, 661);
+            this.panelDesktop.Size = new System.Drawing.Size(934, 657);
             this.panelDesktop.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(64, 477);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(202, 25);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Cursos registrados:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(64, 398);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 25);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Materias registradas:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(64, 322);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(255, 25);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Preceptores registrados:";
+            // 
+            // lblProfesores
+            // 
+            this.lblProfesores.AutoSize = true;
+            this.lblProfesores.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfesores.ForeColor = System.Drawing.Color.White;
+            this.lblProfesores.Location = new System.Drawing.Point(64, 248);
+            this.lblProfesores.Name = "lblProfesores";
+            this.lblProfesores.Size = new System.Drawing.Size(237, 25);
+            this.lblProfesores.TabIndex = 19;
+            this.lblProfesores.Text = "Profesores registrados:";
+            // 
+            // lblAlumnos
+            // 
+            this.lblAlumnos.AutoSize = true;
+            this.lblAlumnos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlumnos.ForeColor = System.Drawing.Color.White;
+            this.lblAlumnos.Location = new System.Drawing.Point(63, 177);
+            this.lblAlumnos.Name = "lblAlumnos";
+            this.lblAlumnos.Size = new System.Drawing.Size(224, 25);
+            this.lblAlumnos.TabIndex = 18;
+            this.lblAlumnos.Text = "Alumnos registrados:";
             // 
             // panelShadow
             // 
             this.panelShadow.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelShadow.Location = new System.Drawing.Point(0, 75);
             this.panelShadow.Name = "panelShadow";
-            this.panelShadow.Size = new System.Drawing.Size(1008, 9);
+            this.panelShadow.Size = new System.Drawing.Size(934, 9);
             this.panelShadow.TabIndex = 1;
             // 
             // panelTitulo
@@ -303,7 +359,7 @@ namespace Front
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(1008, 75);
+            this.panelTitulo.Size = new System.Drawing.Size(934, 75);
             this.panelTitulo.TabIndex = 0;
             this.panelTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitulo_Paint);
             this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseDown);
@@ -333,83 +389,53 @@ namespace Front
             this.iconCurrentChildForm.TabIndex = 0;
             this.iconCurrentChildForm.TabStop = false;
             // 
-            // lblUser
+            // panel1
             // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(22, 25);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(93, 25);
-            this.lblUser.TabIndex = 17;
-            this.lblUser.Text = "Usuario:";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
+            this.panel1.Controls.Add(this.lblHora);
+            this.panel1.Controls.Add(this.lblFecha);
+            this.panel1.Controls.Add(this.lblUsuario);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.lblUser);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 582);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(934, 75);
+            this.panel1.TabIndex = 25;
             // 
-            // lblAlumnos
+            // lblHora
             // 
-            this.lblAlumnos.AutoSize = true;
-            this.lblAlumnos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlumnos.ForeColor = System.Drawing.Color.White;
-            this.lblAlumnos.Location = new System.Drawing.Point(63, 177);
-            this.lblAlumnos.Name = "lblAlumnos";
-            this.lblAlumnos.Size = new System.Drawing.Size(224, 25);
-            this.lblAlumnos.TabIndex = 18;
-            this.lblAlumnos.Text = "Alumnos registrados:";
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblHora.Location = new System.Drawing.Point(886, 27);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(80, 22);
+            this.lblHora.TabIndex = 27;
+            this.lblHora.Text = "Usuario:";
             // 
-            // lblProfesores
+            // lblFecha
             // 
-            this.lblProfesores.AutoSize = true;
-            this.lblProfesores.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfesores.ForeColor = System.Drawing.Color.White;
-            this.lblProfesores.Location = new System.Drawing.Point(64, 248);
-            this.lblProfesores.Name = "lblProfesores";
-            this.lblProfesores.Size = new System.Drawing.Size(237, 25);
-            this.lblProfesores.TabIndex = 19;
-            this.lblProfesores.Text = "Profesores registrados:";
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblFecha.Location = new System.Drawing.Point(424, 29);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(80, 22);
+            this.lblFecha.TabIndex = 26;
+            this.lblFecha.Text = "Usuario:";
             // 
-            // label1
+            // lblUsuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(64, 322);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 25);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Preceptores registrados:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(64, 398);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(223, 25);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Materias registradas:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(64, 477);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 25);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Cursos registrados:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(346, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 25);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Fecha: ";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblUsuario.Location = new System.Drawing.Point(114, 27);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(80, 22);
+            this.lblUsuario.TabIndex = 25;
+            this.lblUsuario.Text = "Usuario:";
             // 
             // label5
             // 
@@ -423,20 +449,28 @@ namespace Front
             this.label5.TabIndex = 24;
             this.label5.Text = "Hora:";
             // 
-            // panel1
+            // label4
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.panel1.Controls.Add(this.lblHora);
-            this.panel1.Controls.Add(this.lblFecha);
-            this.panel1.Controls.Add(this.lblUsuario);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.lblUser);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 586);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1008, 75);
-            this.panel1.TabIndex = 25;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(346, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 25);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Fecha: ";
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(22, 25);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(93, 25);
+            this.lblUser.TabIndex = 17;
+            this.lblUser.Text = "Usuario:";
             // 
             // panel2
             // 
@@ -445,39 +479,6 @@ namespace Front
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(912, 373);
             this.panel2.TabIndex = 26;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblUsuario.Location = new System.Drawing.Point(114, 27);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(80, 22);
-            this.lblUsuario.TabIndex = 25;
-            this.lblUsuario.Text = "Usuario:";
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblFecha.Location = new System.Drawing.Point(424, 29);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(80, 22);
-            this.lblFecha.TabIndex = 26;
-            this.lblFecha.Text = "Usuario:";
-            // 
-            // lblHora
-            // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblHora.Location = new System.Drawing.Point(886, 27);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(80, 22);
-            this.lblHora.TabIndex = 27;
-            this.lblHora.Text = "Usuario:";
             // 
             // horaFecha
             // 
@@ -489,9 +490,10 @@ namespace Front
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1228, 661);
+            this.ClientSize = new System.Drawing.Size(1154, 657);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuPrincipal";
             this.Text = "Sistema escolar";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

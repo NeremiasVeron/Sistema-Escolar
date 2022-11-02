@@ -28,6 +28,7 @@ namespace Front.Forms
         string val_Direccion;
         string val_MatDesa;
         string val_MatApro;
+        string val_Sexo;
         public FormModificarAlumno()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace Front.Forms
             val_MatDesa = txtMatDesaprobadas.Text;
             val_MatApro = txtMatAprobadas.Text;
             val_Fecha = dtmAlumno.Text;
+            if (radiobtnF.Checked) { val_Sexo = radiobtnF.Text; } else { val_Sexo = radiobtnM.Text; }
 
             ValidarCamposEditado();
             btnGuardar.Enabled = false;
@@ -66,6 +68,7 @@ namespace Front.Forms
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Alumno nuevoAlumnoModificado = new Alumno();
+
             if (validadorCurso != cmbCursos.Text || validadorDivision != cmbDivisioness.Text)  // Valido si el usuario modificó los cursos del alumno.Si modificó alguno, busco y me traigo el id del nuevo curso asignado.
             {
                 int idCursoNuevo = instanciaPrincipal.BuscarCursoPorAñoyDivision(cmbCursos.Text, cmbDivisioness.Text.Trim()).idCurso;
@@ -88,14 +91,13 @@ namespace Front.Forms
             nuevoAlumnoModificado.direccion = txtDireccion.Text.Trim();
             nuevoAlumnoModificado.matAprobadas = txtMatAprobadas.Text.Trim();
             nuevoAlumnoModificado.matDesaprobadas = txtMatDesaprobadas.Text.Trim();
-            //if (chkRegular.Checked) { nuevoAlumnoModificado.condicion = true; } else if (chkIrregular.Checked) { nuevoAlumnoModificado.condicion = false; } //En curso.
-            //nuevoAlumnoModificado.cursoAlumno = txtCurso.Text.Trim();
+            if (radiobtnF.Checked) { nuevoAlumnoModificado.sexo = radiobtnF.Text; } else { nuevoAlumnoModificado.sexo = radiobtnM.Text; }
+
             int idAlumno = Convert.ToInt32(txtMatricula.Text);
             instanciaPrincipal.ModificarAlumno(nuevoAlumnoModificado, idAlumno);
 
-            FrmAlertaBox frm = new FrmAlertaBox("Alumno modificado con éxito!", Color.FromArgb(40, 167, 69), 1);
+            FrmAlertaBox frm = new FrmAlertaBox("Alumno modificado con éxito!", Color.FromArgb(40, 167, 69), 1); //HACER validacion para ver si realmmente se mdofico con exito. 
             frm.ShowDialog();
-
             this.Close();
         }
         private void icnbtnAtras_Click(object sender, EventArgs e)
@@ -272,12 +274,13 @@ namespace Front.Forms
             else { errorProviderMatDesa.Clear(); }
             if (val_Fecha != dtmAlumno.Text) { errorProviderFecha.SetError(dtmAlumno, "Campo editado"); }
             else { errorProviderFecha.Clear(); }
+
         }
         private void validarCamposVacios()
         {
             if (txtNombre.Text.Length > 0 && txtApellido.Text.Length > 0 && txtNroDoc.Text.Length > 0 && txtLocalidadAlumno.Text.Length > 0 && txtDireccion.Text.Length > 0 &&
                 txtEmail.Text.Length > 0 && txtTelefonoAlumno.Text.Length > 0 && cmbTipoDoc.Text.Length > 0 && cmbCursos.Text.Length > 0 && cmbDivisioness.Text.Length > 0
-                && txtMatAprobadas.Text.Length > 0 && txtMatDesaprobadas.Text.Length > 0 && dtmAlumno.Text.Length > 0)
+                && txtMatAprobadas.Text.Length > 0 && txtMatDesaprobadas.Text.Length > 0 && dtmAlumno.Text.Length > 0 && radiobtnF.Checked == true || radiobtnM.Checked == true )
             { btnGuardar.Enabled = true; }
             else { btnGuardar.Enabled = false; }
         }
@@ -311,6 +314,36 @@ namespace Front.Forms
         {
             validarCamposVacios();
             ValidarCamposEditado();
+            ValidarFecha();
+
+
+        }
+        private bool ValidarFecha()
+        {
+            DateTime fechaActual = DateTime.Today;
+            int edad;
+
+
+            if (dtmAlumno.Value == fechaActual)
+            {
+                MessageBox.Show("Fecha Inválida");
+            }
+
+            edad = fechaActual.Year - dtmAlumno.Value.Year;
+            if (dtmAlumno.Value.Month > fechaActual.Month) { --edad; }
+
+            if (edad < 12 || edad > 20) { MessageBox.Show("El límite de edad es a partir de 12 años hasta los 20.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); btnGuardar.Enabled = false; return false; }
+            else { btnGuardar.Enabled = true; return true; }
+        }
+
+        private void radiobtnF_CheckedChanged(object sender, EventArgs e)
+        {
+            validarCamposVacios();
+        }
+
+        private void radiobtnM_CheckedChanged(object sender, EventArgs e)
+        {
+            validarCamposVacios();
         }
     }
 }

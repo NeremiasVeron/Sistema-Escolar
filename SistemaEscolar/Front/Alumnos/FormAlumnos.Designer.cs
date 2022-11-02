@@ -31,11 +31,21 @@ namespace Front
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelAlumnos = new System.Windows.Forms.Panel();
+            this.lblContadorAlumnos = new System.Windows.Forms.Label();
             this.gridAlumnos = new System.Windows.Forms.DataGridView();
+            this.iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox5 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
+            this.rbtnDocumento = new System.Windows.Forms.RadioButton();
+            this.rbtnNombre = new System.Windows.Forms.RadioButton();
+            this.rbtnMatricula = new System.Windows.Forms.RadioButton();
+            this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.matriculaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCursoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,33 +63,24 @@ namespace Front
             this.matDesaprobadasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.condicionDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.alumnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox5 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
+            this.persistenciadedatosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.principalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnLimpiarLista = new Front.Botones.Boton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.rbtnDocumento = new System.Windows.Forms.RadioButton();
-            this.rbtnEdad = new System.Windows.Forms.RadioButton();
-            this.rbtnNombre = new System.Windows.Forms.RadioButton();
-            this.rbtnMatricula = new System.Windows.Forms.RadioButton();
-            this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnNuevoAlumno = new Front.Botones.Boton();
             this.btnActualizar = new Front.Botones.Boton();
             this.btnEliminarAlumno = new Front.Botones.Boton();
             this.btnModificarAlumno = new Front.Botones.Boton();
             this.btnBuscar = new Front.Botones.Boton();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.persistenciadedatosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.principalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblContadorAlumnos = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.panelAlumnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAlumnos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.persistenciadedatosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.principalBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -87,15 +88,16 @@ namespace Front
             // panelAlumnos
             // 
             this.panelAlumnos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
+            this.panelAlumnos.Controls.Add(this.checkBox3);
+            this.panelAlumnos.Controls.Add(this.checkBox2);
+            this.panelAlumnos.Controls.Add(this.checkBox1);
             this.panelAlumnos.Controls.Add(this.lblContadorAlumnos);
             this.panelAlumnos.Controls.Add(this.gridAlumnos);
             this.panelAlumnos.Controls.Add(this.iconPictureBox4);
             this.panelAlumnos.Controls.Add(this.iconPictureBox5);
             this.panelAlumnos.Controls.Add(this.iconPictureBox6);
             this.panelAlumnos.Controls.Add(this.btnLimpiarLista);
-            this.panelAlumnos.Controls.Add(this.radioButton1);
             this.panelAlumnos.Controls.Add(this.rbtnDocumento);
-            this.panelAlumnos.Controls.Add(this.rbtnEdad);
             this.panelAlumnos.Controls.Add(this.rbtnNombre);
             this.panelAlumnos.Controls.Add(this.rbtnMatricula);
             this.panelAlumnos.Controls.Add(this.iconCurrentChildForm);
@@ -114,6 +116,17 @@ namespace Front
             this.panelAlumnos.TabIndex = 2;
             this.panelAlumnos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAlumnos_Paint);
             // 
+            // lblContadorAlumnos
+            // 
+            this.lblContadorAlumnos.AutoSize = true;
+            this.lblContadorAlumnos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContadorAlumnos.ForeColor = System.Drawing.Color.White;
+            this.lblContadorAlumnos.Location = new System.Drawing.Point(237, 189);
+            this.lblContadorAlumnos.Name = "lblContadorAlumnos";
+            this.lblContadorAlumnos.Size = new System.Drawing.Size(21, 23);
+            this.lblContadorAlumnos.TabIndex = 40;
+            this.lblContadorAlumnos.Text = "0";
+            // 
             // gridAlumnos
             // 
             this.gridAlumnos.AllowUserToAddRows = false;
@@ -124,14 +137,14 @@ namespace Front
             this.gridAlumnos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
             this.gridAlumnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.matriculaDataGridViewTextBoxColumn,
@@ -151,34 +164,152 @@ namespace Front
             this.matDesaprobadasDataGridViewTextBoxColumn,
             this.condicionDataGridViewCheckBoxColumn});
             this.gridAlumnos.DataSource = this.alumnoBindingSource;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.MediumSlateBlue;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridAlumnos.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridAlumnos.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridAlumnos.EnableHeadersVisualStyles = false;
             this.gridAlumnos.GridColor = System.Drawing.Color.Gainsboro;
             this.gridAlumnos.Location = new System.Drawing.Point(31, 230);
             this.gridAlumnos.Name = "gridAlumnos";
             this.gridAlumnos.ReadOnly = true;
             this.gridAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridAlumnos.RowHeadersVisible = false;
             this.gridAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAlumnos.Size = new System.Drawing.Size(965, 218);
             this.gridAlumnos.TabIndex = 39;
             this.gridAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAlumnos_CellContentClick);
+            // 
+            // iconPictureBox4
+            // 
+            this.iconPictureBox4.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.iconPictureBox4.ForeColor = System.Drawing.Color.Tomato;
+            this.iconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.iconPictureBox4.IconColor = System.Drawing.Color.Tomato;
+            this.iconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox4.IconSize = 39;
+            this.iconPictureBox4.Location = new System.Drawing.Point(760, 480);
+            this.iconPictureBox4.Name = "iconPictureBox4";
+            this.iconPictureBox4.Size = new System.Drawing.Size(41, 39);
+            this.iconPictureBox4.TabIndex = 38;
+            this.iconPictureBox4.TabStop = false;
+            // 
+            // iconPictureBox5
+            // 
+            this.iconPictureBox5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.iconPictureBox5.ForeColor = System.Drawing.Color.Tomato;
+            this.iconPictureBox5.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.iconPictureBox5.IconColor = System.Drawing.Color.Tomato;
+            this.iconPictureBox5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox5.IconSize = 39;
+            this.iconPictureBox5.Location = new System.Drawing.Point(410, 480);
+            this.iconPictureBox5.Name = "iconPictureBox5";
+            this.iconPictureBox5.Size = new System.Drawing.Size(41, 39);
+            this.iconPictureBox5.TabIndex = 37;
+            this.iconPictureBox5.TabStop = false;
+            // 
+            // iconPictureBox6
+            // 
+            this.iconPictureBox6.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.iconPictureBox6.ForeColor = System.Drawing.Color.Tomato;
+            this.iconPictureBox6.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iconPictureBox6.IconColor = System.Drawing.Color.Tomato;
+            this.iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox6.IconSize = 39;
+            this.iconPictureBox6.Location = new System.Drawing.Point(31, 480);
+            this.iconPictureBox6.Name = "iconPictureBox6";
+            this.iconPictureBox6.Size = new System.Drawing.Size(41, 39);
+            this.iconPictureBox6.TabIndex = 36;
+            this.iconPictureBox6.TabStop = false;
+            // 
+            // rbtnDocumento
+            // 
+            this.rbtnDocumento.AutoSize = true;
+            this.rbtnDocumento.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnDocumento.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rbtnDocumento.Location = new System.Drawing.Point(311, 135);
+            this.rbtnDocumento.Name = "rbtnDocumento";
+            this.rbtnDocumento.Size = new System.Drawing.Size(104, 21);
+            this.rbtnDocumento.TabIndex = 27;
+            this.rbtnDocumento.TabStop = true;
+            this.rbtnDocumento.Text = "Documento";
+            this.rbtnDocumento.UseVisualStyleBackColor = true;
+            // 
+            // rbtnNombre
+            // 
+            this.rbtnNombre.AutoSize = true;
+            this.rbtnNombre.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rbtnNombre.Location = new System.Drawing.Point(207, 134);
+            this.rbtnNombre.Name = "rbtnNombre";
+            this.rbtnNombre.Size = new System.Drawing.Size(79, 21);
+            this.rbtnNombre.TabIndex = 25;
+            this.rbtnNombre.TabStop = true;
+            this.rbtnNombre.Text = "Nombre";
+            this.rbtnNombre.UseVisualStyleBackColor = true;
+            this.rbtnNombre.CheckedChanged += new System.EventHandler(this.rbtnNombre_CheckedChanged);
+            // 
+            // rbtnMatricula
+            // 
+            this.rbtnMatricula.AutoSize = true;
+            this.rbtnMatricula.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnMatricula.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rbtnMatricula.Location = new System.Drawing.Point(101, 134);
+            this.rbtnMatricula.Name = "rbtnMatricula";
+            this.rbtnMatricula.Size = new System.Drawing.Size(86, 21);
+            this.rbtnMatricula.TabIndex = 24;
+            this.rbtnMatricula.TabStop = true;
+            this.rbtnMatricula.Text = "Matricula";
+            this.rbtnMatricula.UseVisualStyleBackColor = true;
+            // 
+            // iconCurrentChildForm
+            // 
+            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
+            this.iconCurrentChildForm.ForeColor = System.Drawing.Color.MediumPurple;
+            this.iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassArrowRight;
+            this.iconCurrentChildForm.IconColor = System.Drawing.Color.MediumPurple;
+            this.iconCurrentChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconCurrentChildForm.IconSize = 39;
+            this.iconCurrentChildForm.Location = new System.Drawing.Point(31, 74);
+            this.iconCurrentChildForm.Name = "iconCurrentChildForm";
+            this.iconCurrentChildForm.Size = new System.Drawing.Size(41, 39);
+            this.iconCurrentChildForm.TabIndex = 23;
+            this.iconCurrentChildForm.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(26, 188);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 25);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Listado de Alumnos:";
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.ForeColor = System.Drawing.Color.Black;
+            this.txtBusqueda.Location = new System.Drawing.Point(73, 80);
+            this.txtBusqueda.Multiline = true;
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(571, 27);
+            this.txtBusqueda.TabIndex = 4;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // matriculaDataGridViewTextBoxColumn
             // 
@@ -296,47 +427,15 @@ namespace Front
             // 
             this.alumnoBindingSource.DataSource = typeof(Logica.Alumno);
             // 
-            // iconPictureBox4
+            // persistenciadedatosBindingSource
             // 
-            this.iconPictureBox4.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.iconPictureBox4.ForeColor = System.Drawing.Color.Tomato;
-            this.iconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            this.iconPictureBox4.IconColor = System.Drawing.Color.Tomato;
-            this.iconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox4.IconSize = 39;
-            this.iconPictureBox4.Location = new System.Drawing.Point(760, 480);
-            this.iconPictureBox4.Name = "iconPictureBox4";
-            this.iconPictureBox4.Size = new System.Drawing.Size(41, 39);
-            this.iconPictureBox4.TabIndex = 38;
-            this.iconPictureBox4.TabStop = false;
+            this.persistenciadedatosBindingSource.DataSource = typeof(Logica.Persistenciadedatos);
+            this.persistenciadedatosBindingSource.CurrentChanged += new System.EventHandler(this.persistenciadedatosBindingSource_CurrentChanged);
             // 
-            // iconPictureBox5
+            // principalBindingSource
             // 
-            this.iconPictureBox5.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.iconPictureBox5.ForeColor = System.Drawing.Color.Tomato;
-            this.iconPictureBox5.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
-            this.iconPictureBox5.IconColor = System.Drawing.Color.Tomato;
-            this.iconPictureBox5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox5.IconSize = 39;
-            this.iconPictureBox5.Location = new System.Drawing.Point(410, 480);
-            this.iconPictureBox5.Name = "iconPictureBox5";
-            this.iconPictureBox5.Size = new System.Drawing.Size(41, 39);
-            this.iconPictureBox5.TabIndex = 37;
-            this.iconPictureBox5.TabStop = false;
-            // 
-            // iconPictureBox6
-            // 
-            this.iconPictureBox6.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.iconPictureBox6.ForeColor = System.Drawing.Color.Tomato;
-            this.iconPictureBox6.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconPictureBox6.IconColor = System.Drawing.Color.Tomato;
-            this.iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox6.IconSize = 39;
-            this.iconPictureBox6.Location = new System.Drawing.Point(31, 480);
-            this.iconPictureBox6.Name = "iconPictureBox6";
-            this.iconPictureBox6.Size = new System.Drawing.Size(41, 39);
-            this.iconPictureBox6.TabIndex = 36;
-            this.iconPictureBox6.TabStop = false;
+            this.principalBindingSource.DataSource = typeof(Logica.Principal);
+            this.principalBindingSource.CurrentChanged += new System.EventHandler(this.principalBindingSource_CurrentChanged);
             // 
             // btnLimpiarLista
             // 
@@ -358,96 +457,6 @@ namespace Front
             this.btnLimpiarLista.TextColor = System.Drawing.Color.Black;
             this.btnLimpiarLista.UseVisualStyleBackColor = false;
             this.btnLimpiarLista.Click += new System.EventHandler(this.btnLimpiarLista_Click_1);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.radioButton1.Location = new System.Drawing.Point(316, 134);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(79, 21);
-            this.radioButton1.TabIndex = 28;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Apellido";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // rbtnDocumento
-            // 
-            this.rbtnDocumento.AutoSize = true;
-            this.rbtnDocumento.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnDocumento.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbtnDocumento.Location = new System.Drawing.Point(401, 134);
-            this.rbtnDocumento.Name = "rbtnDocumento";
-            this.rbtnDocumento.Size = new System.Drawing.Size(104, 21);
-            this.rbtnDocumento.TabIndex = 27;
-            this.rbtnDocumento.TabStop = true;
-            this.rbtnDocumento.Text = "Documento";
-            this.rbtnDocumento.UseVisualStyleBackColor = true;
-            // 
-            // rbtnEdad
-            // 
-            this.rbtnEdad.AutoSize = true;
-            this.rbtnEdad.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnEdad.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbtnEdad.Location = new System.Drawing.Point(511, 134);
-            this.rbtnEdad.Name = "rbtnEdad";
-            this.rbtnEdad.Size = new System.Drawing.Size(63, 21);
-            this.rbtnEdad.TabIndex = 26;
-            this.rbtnEdad.TabStop = true;
-            this.rbtnEdad.Text = "Curso";
-            this.rbtnEdad.UseVisualStyleBackColor = true;
-            // 
-            // rbtnNombre
-            // 
-            this.rbtnNombre.AutoSize = true;
-            this.rbtnNombre.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbtnNombre.Location = new System.Drawing.Point(231, 134);
-            this.rbtnNombre.Name = "rbtnNombre";
-            this.rbtnNombre.Size = new System.Drawing.Size(79, 21);
-            this.rbtnNombre.TabIndex = 25;
-            this.rbtnNombre.TabStop = true;
-            this.rbtnNombre.Text = "Nombre";
-            this.rbtnNombre.UseVisualStyleBackColor = true;
-            // 
-            // rbtnMatricula
-            // 
-            this.rbtnMatricula.AutoSize = true;
-            this.rbtnMatricula.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnMatricula.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbtnMatricula.Location = new System.Drawing.Point(139, 134);
-            this.rbtnMatricula.Name = "rbtnMatricula";
-            this.rbtnMatricula.Size = new System.Drawing.Size(86, 21);
-            this.rbtnMatricula.TabIndex = 24;
-            this.rbtnMatricula.TabStop = true;
-            this.rbtnMatricula.Text = "Matricula";
-            this.rbtnMatricula.UseVisualStyleBackColor = true;
-            // 
-            // iconCurrentChildForm
-            // 
-            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.iconCurrentChildForm.ForeColor = System.Drawing.Color.MediumPurple;
-            this.iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassArrowRight;
-            this.iconCurrentChildForm.IconColor = System.Drawing.Color.MediumPurple;
-            this.iconCurrentChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconCurrentChildForm.IconSize = 39;
-            this.iconCurrentChildForm.Location = new System.Drawing.Point(31, 74);
-            this.iconCurrentChildForm.Name = "iconCurrentChildForm";
-            this.iconCurrentChildForm.Size = new System.Drawing.Size(41, 39);
-            this.iconCurrentChildForm.TabIndex = 23;
-            this.iconCurrentChildForm.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(26, 188);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 25);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Listado de Alumnos:";
             // 
             // btnNuevoAlumno
             // 
@@ -554,37 +563,35 @@ namespace Front
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // txtBusqueda
+            // checkBox1
             // 
-            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.ForeColor = System.Drawing.Color.Black;
-            this.txtBusqueda.Location = new System.Drawing.Point(73, 80);
-            this.txtBusqueda.Multiline = true;
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(571, 27);
-            this.txtBusqueda.TabIndex = 4;
-            this.txtBusqueda.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(501, 138);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 41;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // persistenciadedatosBindingSource
+            // checkBox2
             // 
-            this.persistenciadedatosBindingSource.DataSource = typeof(Logica.Persistenciadedatos);
-            this.persistenciadedatosBindingSource.CurrentChanged += new System.EventHandler(this.persistenciadedatosBindingSource_CurrentChanged);
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(587, 137);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(80, 17);
+            this.checkBox2.TabIndex = 42;
+            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // principalBindingSource
+            // checkBox3
             // 
-            this.principalBindingSource.DataSource = typeof(Logica.Principal);
-            this.principalBindingSource.CurrentChanged += new System.EventHandler(this.principalBindingSource_CurrentChanged);
-            // 
-            // lblContadorAlumnos
-            // 
-            this.lblContadorAlumnos.AutoSize = true;
-            this.lblContadorAlumnos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContadorAlumnos.ForeColor = System.Drawing.Color.White;
-            this.lblContadorAlumnos.Location = new System.Drawing.Point(237, 189);
-            this.lblContadorAlumnos.Name = "lblContadorAlumnos";
-            this.lblContadorAlumnos.Size = new System.Drawing.Size(21, 23);
-            this.lblContadorAlumnos.TabIndex = 40;
-            this.lblContadorAlumnos.Text = "0";
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(673, 137);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(80, 17);
+            this.checkBox3.TabIndex = 43;
+            this.checkBox3.Text = "checkBox3";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // FormAlumnos
             // 
@@ -600,11 +607,11 @@ namespace Front
             this.panelAlumnos.ResumeLayout(false);
             this.panelAlumnos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAlumnos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alumnoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.persistenciadedatosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.principalBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -625,10 +632,8 @@ namespace Front
         private System.Windows.Forms.BindingSource persistenciadedatosBindingSource;
         private System.Windows.Forms.BindingSource principalBindingSource;
         private System.Windows.Forms.RadioButton rbtnDocumento;
-        private System.Windows.Forms.RadioButton rbtnEdad;
         private System.Windows.Forms.RadioButton rbtnNombre;
         private System.Windows.Forms.RadioButton rbtnMatricula;
-        private System.Windows.Forms.RadioButton radioButton1;
         private Botones.Boton btnLimpiarLista;
         private System.Windows.Forms.BindingSource alumnoBindingSource;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox4;
@@ -652,5 +657,8 @@ namespace Front
         private System.Windows.Forms.DataGridViewTextBoxColumn matDesaprobadasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn condicionDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Label lblContadorAlumnos;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
