@@ -71,9 +71,7 @@ namespace Front
             this.btnEliminarAlumno = new Front.Botones.Boton();
             this.btnModificarAlumno = new Front.Botones.Boton();
             this.btnBuscar = new Front.Botones.Boton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.cmbTipodoc = new System.Windows.Forms.ComboBox();
             this.panelAlumnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
@@ -88,9 +86,7 @@ namespace Front
             // panelAlumnos
             // 
             this.panelAlumnos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.panelAlumnos.Controls.Add(this.checkBox3);
-            this.panelAlumnos.Controls.Add(this.checkBox2);
-            this.panelAlumnos.Controls.Add(this.checkBox1);
+            this.panelAlumnos.Controls.Add(this.cmbTipodoc);
             this.panelAlumnos.Controls.Add(this.lblContadorAlumnos);
             this.panelAlumnos.Controls.Add(this.gridAlumnos);
             this.panelAlumnos.Controls.Add(this.iconPictureBox4);
@@ -247,6 +243,7 @@ namespace Front
             this.rbtnDocumento.TabStop = true;
             this.rbtnDocumento.Text = "Documento";
             this.rbtnDocumento.UseVisualStyleBackColor = true;
+            this.rbtnDocumento.CheckedChanged += new System.EventHandler(this.rbtnDocumento_CheckedChanged);
             // 
             // rbtnNombre
             // 
@@ -274,6 +271,7 @@ namespace Front
             this.rbtnMatricula.TabStop = true;
             this.rbtnMatricula.Text = "Matricula";
             this.rbtnMatricula.UseVisualStyleBackColor = true;
+            this.rbtnMatricula.CheckedChanged += new System.EventHandler(this.rbtnMatricula_CheckedChanged);
             // 
             // iconCurrentChildForm
             // 
@@ -563,35 +561,21 @@ namespace Front
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // checkBox1
+            // cmbTipodoc
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(501, 138);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 41;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(587, 137);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
-            this.checkBox2.TabIndex = 42;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(673, 137);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
-            this.checkBox3.TabIndex = 43;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cmbTipodoc.FormattingEnabled = true;
+            this.cmbTipodoc.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cmbTipodoc.Items.AddRange(new object[] {
+            "DNI",
+            "Pasaporte",
+            "Libreta Enrolamiento",
+            "Libreta Civica",
+            "Libreta Verde"});
+            this.cmbTipodoc.Location = new System.Drawing.Point(451, 136);
+            this.cmbTipodoc.Name = "cmbTipodoc";
+            this.cmbTipodoc.Size = new System.Drawing.Size(193, 21);
+            this.cmbTipodoc.TabIndex = 41;
+            this.cmbTipodoc.SelectedIndexChanged += new System.EventHandler(this.cmbTipodoc_SelectedIndexChanged);
             // 
             // FormAlumnos
             // 
@@ -657,8 +641,6 @@ namespace Front
         private System.Windows.Forms.DataGridViewTextBoxColumn matDesaprobadasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn condicionDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Label lblContadorAlumnos;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox cmbTipodoc;
     }
 }

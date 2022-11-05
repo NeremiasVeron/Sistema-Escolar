@@ -25,19 +25,20 @@ namespace Front
         public FormAlumnos()
         {
             InitializeComponent();
-            actualizarGrilla();
+            ActualizarGrilla();
             //instanciaPrincipal.RellenarListas();
 
         }
         
         private void FormAlumnos_Load(object sender, EventArgs e)
         {
-            actualizarGrilla();
+            ActualizarGrilla();
+            cmbTipodoc.DropDownStyle = ComboBoxStyle.DropDownList;
             //lblAlumnoMod.Visible = false;
-           //lblIdAlumnoMod.Visible = false;
+            //lblIdAlumnoMod.Visible = false;
 
-                //5/10 = 00:00HS. Agregar una lista a la logica datos mas relevantes, traerla y mostrarla. En los btn ABM, llamo al dtg del form a heredar.
-                           //Heredar otro form de alumnos para mostrar la lista con datos completos.
+            //5/10 = 00:00HS. Agregar una lista a la logica datos mas relevantes, traerla y mostrarla. En los btn ABM, llamo al dtg del form a heredar.
+            //Heredar otro form de alumnos para mostrar la lista con datos completos.
 
             //foreach(var indice in instanciaPrincipal.getListaAlumnos())
             //{
@@ -46,9 +47,10 @@ namespace Front
             //}
         }
    
-        private void actualizarGrilla() 
+        private void ActualizarGrilla() 
         { 
             instanciaPrincipal.RellenarListas();
+
             gridAlumnos.DataSource = null;
             gridAlumnos.DataSource = instanciaPrincipal.getListaAlumnos();
             lblContadorAlumnos.Text = instanciaPrincipal.getListaAlumnos().Count.ToString(); 
@@ -81,9 +83,10 @@ namespace Front
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+
             if (rbtnMatricula.Checked == true)
             {
+               
                 int matriculaAlumno = Convert.ToInt32(txtBusqueda.Text);
                 List<Alumno> listaAlumnosEncontrada = new List<Alumno>();
                 listaAlumnosEncontrada = instanciaPrincipal.BuscarAlumnoPorMatricula(matriculaAlumno);
@@ -101,6 +104,7 @@ namespace Front
 
             else if (rbtnNombre.Checked == true)
             {
+
                 string nombreAlumno = txtBusqueda.Text.Trim();
                 List<Alumno> listaAlumnosEncontrada = new List<Alumno>();
                 listaAlumnosEncontrada = instanciaPrincipal.BuscarAlumnoPorNombre(nombreAlumno);
@@ -138,36 +142,43 @@ namespace Front
             }
            
         }
-
+        private void ActualizarGrillaPorNombre()
+        {
+            gridAlumnos.DataSource = null;
+            gridAlumnos.DataSource = instanciaPrincipal.FiltrarListaAlumnosPorNombre();
+        }
         private void btnEliminarAlumno_Click(object sender, EventArgs e)
         {
-            DialogResult inputUsuario = MessageBox.Show("¿Estas seguro que desea eliminar el registro?", "Eliminar alumno", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            
-            if (inputUsuario == DialogResult.OK)
+
+            foreach (DataGridViewRow indice in gridAlumnos.SelectedRows)
             {
-                foreach (DataGridViewRow indice in gridAlumnos.SelectedRows)
+                int idAlumnoEliminado = Convert.ToInt32(indice.Cells[0].Value);
+                DialogResult inputUsuario = MessageBox.Show("¿Estas seguro que desea eliminar el alumno: " + indice.Cells[2].Value + " " + indice.Cells[3].Value + " con documento " + indice.Cells[5].Value + "?", "Eliminar alumno", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                
+                if (inputUsuario == DialogResult.OK)
                 {
-                    int idAlumnoEliminado = Convert.ToInt32(indice.Cells[0].Value);
                     instanciaPrincipal.EliminarAlumno(idAlumnoEliminado);
+                    FrmAlertaBox frm = new FrmAlertaBox("Alumno eliminado con éxito", Color.FromArgb(220, 53, 63), 2);
+                    frm.ShowDialog();
                     break;
-                }
-                FrmAlertaBox frm = new FrmAlertaBox("Alumno eliminado con éxito", Color.FromArgb(220, 53, 63), 2);
-                frm.ShowDialog();
+                }   
+                
             }
-            actualizarGrilla();
+            ActualizarGrilla();
         }
 
         private void btnModificarAlumno_Click(object sender, EventArgs e)
         {
             FormModificarAlumno frm = new FormModificarAlumno();
 
-            foreach (DataGridViewRow indice in gridAlumnos.SelectedRows)
+            foreach (DataGridViewRow indice in gridAlumnos.SelectedRows) //Recorro el grid para pasar los datos del alumno a modoficar al otro form. ACLAR.: coloco los modificadores de acceso publicos del otro form.
             {
                 frm.txtMatricula.Text = indice.Cells[0].Value.ToString();
                 frm.txtIdCurso.Text = indice.Cells[1].Value.ToString();
                 
                 List<Curso> listaCurso = new List<Curso>();
                 listaCurso = instanciaPrincipal.BuscarCursoPorId(Convert.ToInt32(indice.Cells[1].Value));
+
                 foreach (var i in listaCurso) //recorro la lista en la que tengo el objeto curso para extraer las propiedaes que me interesan modificar y mandarlas al otro form. 
                 {
                     frm.cmbCursos.Text = i.año.ToString();
@@ -193,12 +204,12 @@ namespace Front
                 //fmr.condicion[15]
             }
             OpenChildForm(frm);
-            actualizarGrilla();
+            ActualizarGrilla();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            actualizarGrilla();
+            ActualizarGrilla();
         }
 
         private void panelAlumnos_Paint(object sender, PaintEventArgs e)
@@ -242,7 +253,7 @@ namespace Front
         private void btnLimpiarLista_Click_1(object sender, EventArgs e)
         {
             instanciaPrincipal.EliminarListaCompleta();
-            actualizarGrilla();
+            ActualizarGrilla();
         }
 
         private void gridAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -262,6 +273,57 @@ namespace Front
 
         private void rbtnNombre_CheckedChanged(object sender, EventArgs e)
         {
+            ActualizarGrillaPorNombre();
+        }
+
+        private void rbtnMatricula_CheckedChanged(object sender, EventArgs e)
+        {
+            ActualizarGrilla();
+        }
+
+        private void rbtnDocumento_CheckedChanged(object sender, EventArgs e)
+        {
+            ActualizarGrillaPorTipoDoc();
+        }
+        private void ActualizarGrillaPorTipoDoc()
+        {
+            gridAlumnos.DataSource = null;
+            gridAlumnos.DataSource = instanciaPrincipal.FiltrarListaAlumnosPorTipoDocumento();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTipodoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTipodoc.Text == "DNI")
+            {
+                gridAlumnos.DataSource = null;
+                gridAlumnos.DataSource = instanciaPrincipal.FiltrarListaAlumnosPorTipoDocumento("DNI");
+            }
+            else if (cmbTipodoc.Text == "Pasaporte")
+            {
+                gridAlumnos.DataSource = null;
+                gridAlumnos.DataSource = instanciaPrincipal.FiltrarListaAlumnosPorTipoDocumento("Pasaporte");
+            }
+            else if (cmbTipodoc.Text == "Libreta Civica")
+            {
+                gridAlumnos.DataSource = null;
+                gridAlumnos.DataSource = instanciaPrincipal.FiltrarListaAlumnosPorTipoDocumento("Libreta Civica");
+            }
+            else if(cmbTipodoc.Text == "Libreta Verde") 
+            {
+                gridAlumnos.DataSource = null;
+                gridAlumnos.DataSource = instanciaPrincipal.FiltrarListaAlumnosPorTipoDocumento("Libreta Verde");
+
+            }
+            else
+            {
+                gridAlumnos.DataSource = null;
+                gridAlumnos.DataSource = instanciaPrincipal.FiltrarListaAlumnosPorTipoDocumento("Libreta Enrolamiento");
+            }
 
         }
     }

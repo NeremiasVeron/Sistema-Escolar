@@ -11,6 +11,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Logica
 {
@@ -289,18 +290,37 @@ namespace Logica
             ListaAlumnos = ListaAlumnosOrdenada.ToList();
             return ListaAlumnos;
         }
-        public bool validarIdRepetidos(int id) //prueba
+        public List<Alumno> FiltrarListaAlumnosPorNombre() //Para devolver la lista ordenada por nombre.
         {
-            bool validador = false;
-            foreach (var indice in ListaAlumnos)
-            {
-                if (indice.matricula == id)
-                {
-                    return validador = true;
-                }
-            }
-            return validador;
+            ListaAlumnos = ValidarNullListaAlumnos();
+            ListaAlumnos = ListaAlumnos.OrderBy(x => x.nombre).ToList();
+
+            return ListaAlumnos;
         }
+        public List<Alumno> FiltrarListaAlumnosPorTipoDocumento() //Para devolver la lista ordenada por nombre.
+        {
+            ListaAlumnos = ValidarNullListaAlumnos();
+            ListaAlumnos = ListaAlumnos.OrderBy(x => x.tipoDoc).ToList();
+
+            return ListaAlumnos;
+        }
+        public List<Alumno> FiltrarListaAlumnosPorTipoDocumento(string tipoDoc) //Para devolver la lista ordenada por nombre.
+        {
+            ListaAlumnos = ValidarNullListaAlumnos();
+
+            ListaAlumnos = ListaAlumnos.OrderBy(x => x.tipoDoc).ToList();
+            ListaAlumnos = ListaAlumnos.FindAll(x => tipoDoc == x.tipoDoc);
+
+            return ListaAlumnos;
+        }
+        public List<Alumno> FiltrarListaAlumnosPorLocalidad() //Para devolver la lista ordenada por nombre.
+        {
+            ListaAlumnos = ValidarNullListaAlumnos();
+            ListaAlumnos = ListaAlumnos.OrderBy(x => x.localidad).ToList();
+
+            return ListaAlumnos;
+        }
+
         public List<int> validarListaIdsEliminados() //validacion de listaAlumnosIdEliminados null. 
         {
             if (ListaIdEliminados == null)
